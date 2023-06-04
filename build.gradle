@@ -1,4 +1,6 @@
 plugins {
+    id 'org.springframework.boot' version '2.7.0'
+    id 'io.spring.dependency-management' version '1.1.0'
     id 'java'
 }
 
@@ -10,10 +12,58 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
 
 test {
     useJUnitPlatform()
+}
+
+// React configuration
+def reactAppDir = "$projectDir/src/main/webapp/reactapp"
+
+sourceSets {
+    main {
+        resources {
+            srcDirs = ["$projectDir/src/main/resources"]
+        }
+    }
+}
+
+processResources {
+    dependsOn "copyReactFile"
+}
+
+tasks.register('installReact', Exec) {
+    workingDir "$reactAppDir"
+    inputs.dir "$reactAppDir"
+    group = BasePlugin.BUILD_GROUP
+    if (true == System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+        commandLine "npm.cmd", "audit", "fix"
+        commandLine 'npm.cmd', 'install'
+    } else {
+        commandLine "npm", "audit", "fix"
+        commandLine 'npm', 'install'
+    }
+}
+
+tasks.register('buildReact', Exec) {
+    dependsOn "installReact"
+    workingDir "$reactAppDir"
+    inputs.dir "$reactAppDir"
+    group = BasePlugin.BUILD_GROUP
+    if (true == System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+        commandLine "npm.cmd", "run-script", "build"
+    } else {
+        commandLine "npm", "run-script", "build"
+    }
+}
+
+tasks.register('copyReactFile', Copy) {
+    dependsOn "buildReact"
+    from "$reactAppDir/build"
+    into "$buildDir/resources/main/static"
 }
