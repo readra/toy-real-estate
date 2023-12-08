@@ -6,7 +6,7 @@ function App() {
   const [message, setMessage] = useState([]);
 
   useEffect(() => {
-    fetch("/api/apartment")
+    fetch("http://localhost:8081/api/apartment")
         .then((response) => {
           return response.json();
         })
