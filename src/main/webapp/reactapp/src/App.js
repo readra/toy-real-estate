@@ -3,7 +3,7 @@ import './App.css';
 import {useEffect, useState} from "react";
 
 function App() {
-  const [message, setMessage] = useState([]);
+  const [messages, setMessages] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:8081/api/apartment")
@@ -11,7 +11,8 @@ function App() {
           return response.json();
         })
         .then(function (data) {
-          setMessage(data);
+            console.log(data)
+          setMessages(data);
         });
   }, []);
 
@@ -32,7 +33,7 @@ function App() {
         </a>
 
         <ul>
-          {message.map((text, index) => <li key = {`${index}-${text}`}>{index}'오오'{text}</li>)}
+          {messages.map((message) => <p>{message.transactionAmount}</p>)}
         </ul>
       </header>
     </div>
