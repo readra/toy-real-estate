@@ -40,7 +40,7 @@ function App() {
 					</tr>
 					</thead>
 					<tbody>
-						{messages.map((message) => <tr><td>1</td><td>{message.transactionAmount}</td></tr>)}
+						{messages.map((message, index) => <tr><td>{index}</td><td>{message.transactionAmount}</td></tr>)}
 					</tbody>
 				</table>
 			</header>
