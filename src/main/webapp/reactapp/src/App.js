@@ -37,11 +37,19 @@ function App() {
 					<tr>
 						<th>#</th>
 						<th>아파트</th>
+						<th>층</th>
 						<th>거래금액</th>
 					</tr>
 					</thead>
 					<tbody>
-						{messages.map((message, index) => <tr><td>{index}</td><td>{message.apartmentName}</td><td>{message.transactionAmount}</td></tr>)}
+						{messages.map((message, index) =>
+							<tr>
+								<td>{index}</td>
+								<td>{message.apartmentName}</td>
+								<td>{message.layer}</td>
+								<td>{message.transactionAmount}</td>
+							</tr>
+						)}
 					</tbody>
 				</table>
 			</header>
