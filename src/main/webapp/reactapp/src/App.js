@@ -39,6 +39,7 @@ function App() {
 						<th>아파트</th>
 						<th>층</th>
 						<th>거래금액</th>
+						<th>거래일</th>
 					</tr>
 					</thead>
 					<tbody>
@@ -48,6 +49,7 @@ function App() {
 								<td>{message.apartmentName}</td>
 								<td>{message.layer}</td>
 								<td>{message.transactionAmount}</td>
+								<td>{message.year}년 {message.month}월 {message.day}일</td>
 							</tr>
 						)}
 					</tbody>
