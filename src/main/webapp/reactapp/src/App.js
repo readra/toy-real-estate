@@ -37,6 +37,8 @@ function App() {
 					<tr>
 						<th>#</th>
 						<th>아파트</th>
+						<th>지역코드</th>
+						<th>법정동</th>
 						<th>지번</th>
 						<th>층</th>
 						<th>전용면적</th>
@@ -50,6 +52,8 @@ function App() {
 							<tr>
 								<td>{index}</td>
 								<td>{message.apartmentName}</td>
+								<td>{message.lawdCode}</td>
+								<td>{message.legalBuilding}</td>
 								<td>{message.localNumber}</td>
 								<td>{message.layer}</td>
 								<td>{message.exclusiveArea}</td>
