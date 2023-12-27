@@ -39,9 +39,9 @@ function App() {
 						<th>아파트</th>
 						<th>주소</th>
 						<th>층</th>
-						<th>전용면적</th>
+						<th>전용면적(㎡)</th>
 						<th>건축년도</th>
-						<th>거래금액</th>
+						<th>거래금액(만원)</th>
 						<th>거래일</th>
 					</tr>
 					</thead>
