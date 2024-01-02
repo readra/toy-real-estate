@@ -1,68 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-import {useEffect, useState} from "react";
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Header from './Header';
+import Main from './Main';
+import Apartment from './Apartment';
+import NotFound from './NotFound';
 
-function App() {
-	const [messages, setMessages] = useState([]);
-
-	useEffect(() => {
-		fetch("http://localhost:8081/api/apartment")
-			.then((response) => {
-				return response.json();
-			})
-			.then(function (data) {
-				console.log(data)
-				setMessages(data);
-			});
-	}, []);
-
+const App = () => {
 	return (
-		<div className="App">
-			<header className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
-				<p>
-					Edit <code>src/App.js</code> and save to reload.
-				</p>
-				<a
-					className="App-link"
-					href="https://reactjs.org"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Learn React
-				</a>
-
-				<table>
-					<thead>
-					<tr>
-						<th>#</th>
-						<th>아파트</th>
-						<th>주소</th>
-						<th>층</th>
-						<th>전용면적(㎡)</th>
-						<th>건축년도</th>
-						<th>거래금액(만원)</th>
-						<th>거래일</th>
-					</tr>
-					</thead>
-					<tbody>
-						{messages.map((message, index) =>
-							<tr>
-								<td>{index}</td>
-								<td>{message.apartmentName}</td>
-								<td>{message.lawd} {message.legalBuilding} {message.localNumber}</td>
-								<td>{message.layer}</td>
-								<td>{message.exclusiveArea}</td>
-								<td>{message.buildingYear}</td>
-								<td>{message.transactionAmount}</td>
-								<td>{message.year}년 {message.month}월 {message.day}일</td>
-							</tr>
-						)}
-					</tbody>
-				</table>
-			</header>
+		<div className='App'>
+			<BrowserRouter>
+				<Header />
+				<Routes>
+					<Route path="/" element={<Main />}></Route>
+					<Route path="/apartment/*" element={<Apartment />}></Route>
+					{/* 상단에 위치하는 라우트들의 규칙을 모두 확인, 일치하는 라우트가 없는경우 처리 */}
+					<Route path="*" element={<NotFound />}></Route>
+				</Routes>
+			</BrowserRouter>
 		</div>
 	);
-}
+};
 
 export default App;
