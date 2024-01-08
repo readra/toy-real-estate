@@ -22,12 +22,11 @@ const Main = () => {
 	const [messages, setMessages] = useState([]);
 
 	useEffect(() => {
-		fetch("http://localhost:8081/api/apartment")
+		fetch("http://localhost:8081/api/apartment?lawdCode=11740&startYearMonth=2015-01&endYearMonth=2015-02")
 			.then((response) => {
 				return response.json();
 			})
 			.then(function (data) {
-				console.log(data)
 				setMessages(data);
 			});
 	}, []);
