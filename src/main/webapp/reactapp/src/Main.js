@@ -30,27 +30,25 @@ const Main = () => {
 	};
 
 
-	const [messages, setMessages] = useState([]);
 	const [sis, setSis] = useState([]);
 	const [gus, setGus] = useState([]);
 	const [dongs, setDongs] = useState([]);
+	const [messages, setMessages] = useState([]);
 
 	useEffect(() => {
 		axios
-			.all([axios.get("http://localhost:8081/api/lawd-si"), axios.get("http://localhost:8081/api/lawd-gu"), axios.get("http://localhost:8081/api/lawd-dong")])
+			.all([axios.get("http://localhost:8081/api/lawd-si"),
+				axios.get("http://localhost:8081/api/lawd-gu"),
+				axios.get("http://localhost:8081/api/lawd-dong"),
+				axios.get("http://localhost:8081/api/apartment?lawdCode=11740&startYearMonth=2015-01&endYearMonth=2015-01")
+			])
 			.then(
-				axios.spread((si, gu, dong) => {
+				axios.spread((si, gu, dong, message) => {
 					setSis(si.data);
 					setGus(gu.data);
 					setDongs(dong.data);
+					setMessages(message.data)
 		}))
-		// fetch("http://localhost:8081/api/apartment?lawdCode=11740&startYearMonth=2015-01&endYearMonth=2015-02")
-		// 	.then((response) => {
-		// 		return response.json();
-		// 	})
-		// 	.then(function (data) {
-		// 		setMessages(data);
-		// 	});
 	}, []);
 
 	return (
@@ -118,7 +116,7 @@ const Main = () => {
 				<TableContainer component={Paper}>
 					<TableHead>
 						<TableRow>
-							<TableCell>NO</TableCell>
+							<TableCell>No</TableCell>
 							<TableCell>아파트</TableCell>
 							<TableCell>주소</TableCell>
 							<TableCell>층</TableCell>
