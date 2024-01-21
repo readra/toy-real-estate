@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import { Link } from 'react-router-dom';
 import {
 	FormControl,
 	InputLabel,
@@ -53,12 +52,6 @@ const Main = () => {
 
 	return (
 		<>
-			<h3>안녕하세요. 메인페이지 입니다.</h3>
-			<ul>
-				<Link to="/apartment/1"><li>1번상품</li></Link>
-				<Link to="/apartment/2"><li>2번상품</li></Link>
-			</ul>
-
 			<div style={{ textAlign: "center" }}>
 				<FormControl sx={{ m: 1, minWidth: 200 }}>
 					<InputLabel id="si-select-label">
