@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {
-	FormControl,
+	FormControl, Input,
 	InputLabel,
 	MenuItem,
 	Paper,
@@ -102,6 +102,22 @@ const Main = () => {
 							<MenuItem value={1}>{dong.name} ({dong.code})</MenuItem>
 						))}
 					</Select>
+				</FormControl>
+			</div>
+
+			<div style={{ textAlign: "center" }}>
+				<FormControl sx={{ m: 1, minWidth: 200 }}>
+					<InputLabel id="amount-up-input-label">
+						거래금액(만원) 이상
+					</InputLabel>
+					<Input/>
+				</FormControl>
+
+				<FormControl sx={{ m: 1, minWidth: 200 }}>
+					<InputLabel id="amount-down-input-label">
+						거래금액(만원) 이하
+					</InputLabel>
+					<Input/>
 				</FormControl>
 			</div>
 
