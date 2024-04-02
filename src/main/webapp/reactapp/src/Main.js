@@ -39,7 +39,7 @@ const Main = () => {
 			.all([axios.get("http://localhost:8081/api/lawd-si"),
 				axios.get("http://localhost:8081/api/lawd-gu"),
 				axios.get("http://localhost:8081/api/lawd-dong"),
-				axios.get("http://localhost:8081/api/apartment?lawdCode=11740&startYearMonth=2015-01&endYearMonth=2015-01&startTransactionAmount=50000&endTransactionAmount=55000")
+				axios.get("http://localhost:8081/api/apartment?lawdCode=11740&startYearMonth=2015-01&endYearMonth=2015-01&startTransactionAmount=50000&endTransactionAmount=55000&itemCount=50")
 			])
 			.then(
 				axios.spread((si, gu, dong, message) => {
