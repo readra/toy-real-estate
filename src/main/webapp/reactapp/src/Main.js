@@ -46,7 +46,7 @@ const Main = () => {
 					setSis(si.data);
 					setGus(gu.data);
 					setDongs(dong.data);
-					setMessages(message.data)
+					setMessages(message.data.results)
 		}))
 	}, []);
 
