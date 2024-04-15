@@ -8,7 +8,8 @@ import {
 	TableBody, TableCell,
 	TableContainer,
 	TableHead,
-	TableRow
+	TableRow,
+	Button
 } from "@mui/material";
 import axios from 'axios';
 
@@ -102,6 +103,12 @@ const Main = () => {
 							<MenuItem value={1}>{dong.name} ({dong.code})</MenuItem>
 						))}
 					</Select>
+				</FormControl>
+
+				<FormControl>
+					<Button variant="contained">
+						조회
+					</Button>
 				</FormControl>
 			</div>
 
