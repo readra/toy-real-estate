@@ -20,7 +20,6 @@ const Main = () => {
 
 	const handleSiChange = (event) => {
 		setSi(event.target.value);
-
 	};
 	const handleGuChange = (event) => {
 		setGu(event.target.value);
@@ -28,7 +27,11 @@ const Main = () => {
 	const handleDongChange = (event) => {
 		setDong(event.target.value);
 	};
-
+	const handleSearchClick = () => {
+		alert("시" + si);
+		alert("구" + gu);
+		alert("동" + dong);
+	}
 
 	const [sis, setSis] = useState([]);
 	const [gus, setGus] = useState([]);
@@ -66,7 +69,7 @@ const Main = () => {
 						onChange={handleSiChange}
 					>
 						{sis.map((si) => (
-							<MenuItem value={1}>{si.name} ({si.code})</MenuItem>
+							<MenuItem value={si.code}>{si.name}</MenuItem>
 						))}
 					</Select>
 				</FormControl>
@@ -83,7 +86,7 @@ const Main = () => {
 						onChange={handleGuChange}
 					>
 						{gus.map((gu) => (
-							<MenuItem value={1}>{gu.name} ({gu.code})</MenuItem>
+							<MenuItem value={gu.code}>{gu.name}</MenuItem>
 						))}
 					</Select>
 				</FormControl>
@@ -100,13 +103,13 @@ const Main = () => {
 						onChange={handleDongChange}
 					>
 						{dongs.map((dong) => (
-							<MenuItem value={1}>{dong.name} ({dong.code})</MenuItem>
+							<MenuItem value={dong.code}>{dong.name}</MenuItem>
 						))}
 					</Select>
 				</FormControl>
 
-				<FormControl>
-					<Button variant="contained">
+				<FormControl sx={{ m: 1, minWidth: 200 }}>
+					<Button variant="contained" style={{ width: '80px', height: '40px' }} onClick={handleSearchClick}>
 						조회
 					</Button>
 				</FormControl>
