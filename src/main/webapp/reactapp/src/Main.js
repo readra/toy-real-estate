@@ -28,9 +28,14 @@ const Main = () => {
 		setDong(event.target.value);
 	};
 	const handleSearchClick = () => {
-		alert("시" + si);
-		alert("구" + gu);
-		alert("동" + dong);
+		axios
+			.all([
+				axios.get("http://localhost:8081/api/apartment?lawdCode=" + dong + "&startYearMonth=2015-01&endYearMonth=2015-01&startTransactionAmount=50000&endTransactionAmount=55000&itemCount=50")
+			])
+			.then(
+				axios.spread((message) => {
+					setMessages(message.data.results)
+				}))
 	}
 
 	const [sis, setSis] = useState([]);
