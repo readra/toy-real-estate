@@ -28,7 +28,7 @@ const Main = () => {
 		setDong(event.target.value);
 	};
 	const handleSearchClick = () => {
-		if ( undefined !== dong ) {
+		if ( dong ) {
 			axios
 				.all([
 					axios.get("http://localhost:8081/api/apartment?lawdCode=" + dong + "&startYearMonth=2015-01&endYearMonth=2015-01&startTransactionAmount=50000&endTransactionAmount=55000&itemCount=50")
@@ -47,8 +47,6 @@ const Main = () => {
 						setMessages(message.data.results)
 					}))
 		}
-
-
 	}
 
 	const [sis, setSis] = useState([]);
@@ -60,15 +58,13 @@ const Main = () => {
 		axios
 			.all([axios.get("http://localhost:8081/api/lawd-si"),
 				axios.get("http://localhost:8081/api/lawd-gu"),
-				axios.get("http://localhost:8081/api/lawd-dong"),
-				axios.get("http://localhost:8081/api/apartment?lawdCode=11740&startYearMonth=2015-01&endYearMonth=2015-01&startTransactionAmount=50000&endTransactionAmount=55000&itemCount=50")
+				axios.get("http://localhost:8081/api/lawd-dong")
 			])
 			.then(
-				axios.spread((si, gu, dong, message) => {
+				axios.spread((si, gu, dong) => {
 					setSis(si.data);
 					setGus(gu.data);
 					setDongs(dong.data);
-					setMessages(message.data.results)
 		}))
 	}, []);
 
