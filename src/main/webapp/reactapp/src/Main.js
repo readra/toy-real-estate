@@ -27,6 +27,9 @@ const Main = () => {
 	const handleDongChange = (event) => {
 		setDong(event.target.value);
 	};
+
+	const [messages, setMessages] = useState([]);
+
 	const handleSearchClick = () => {
 		if ( dong ) {
 			axios
@@ -52,7 +55,6 @@ const Main = () => {
 	const [sis, setSis] = useState([]);
 	const [gus, setGus] = useState([]);
 	const [dongs, setDongs] = useState([]);
-	const [messages, setMessages] = useState([]);
 
 	useEffect(() => {
 		axios
