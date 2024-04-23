@@ -12,6 +12,8 @@ import {
 	Button
 } from "@mui/material";
 import axios from 'axios';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 
 const Main = () => {
 	const [si, setSi] = React.useState("");
@@ -69,6 +71,8 @@ const Main = () => {
 					setDongs(dong.data);
 		}))
 	}, []);
+
+	const [date, setDate] = useState(new Date());
 
 	return (
 		<>
@@ -145,6 +149,10 @@ const Main = () => {
 					</InputLabel>
 					<Input/>
 				</FormControl>
+			</div>
+
+			<div>
+				<Calendar onChange={setDate} value={date} />
 			</div>
 
 			<div style={{ textAlign: "center" }}>
