@@ -14,6 +14,7 @@ import {
 import axios from 'axios';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import moment from "moment";
 
 const Main = () => {
 	const [si, setSi] = React.useState("");
@@ -72,7 +73,17 @@ const Main = () => {
 		}))
 	}, []);
 
-	const [date, setDate] = useState(new Date());
+	const [nowDate, setNowDate] = useState("거래 일자(시작)");
+	const [isOpen, setIsOpen] = useState(false);
+
+	const handleToggleCalendar = () => {
+		setIsOpen(!isOpen);
+	};
+
+	const handleDateChange = (selectedDate) => {
+		setIsOpen(false);
+		setNowDate(moment(selectedDate).format("YYYY년 MM월 DD일"));
+	};
 
 	return (
 		<>
@@ -152,7 +163,10 @@ const Main = () => {
 			</div>
 
 			<div>
-				<Calendar onChange={setDate} value={date} />
+				<Button onClick={handleToggleCalendar}>{nowDate}</Button>
+				<div>
+					<Calendar onChange={handleDateChange}></Calendar>
+				</div>
 			</div>
 
 			<div style={{ textAlign: "center" }}>
