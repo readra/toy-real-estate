@@ -76,6 +76,8 @@ const Main = () => {
 	const [nowDate, setNowDate] = useState("거래 일자(시작)");
 	const [isOpen, setIsOpen] = useState(false);
 
+	const style = { visibility: isOpen ? 'hidden' : 'visible' };
+
 	const handleToggleCalendar = () => {
 		setIsOpen(!isOpen);
 	};
@@ -164,7 +166,7 @@ const Main = () => {
 
 			<div>
 				<Button onClick={handleToggleCalendar}>{nowDate}</Button>
-				<div>
+				<div style={style}>
 					<Calendar onChange={handleDateChange}></Calendar>
 				</div>
 			</div>
