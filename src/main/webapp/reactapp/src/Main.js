@@ -73,18 +73,22 @@ const Main = () => {
 		}))
 	}, []);
 
-	const [nowDate, setNowDate] = useState("거래 일자(시작)");
+	const [startDate, setStartDate] = useState("거래 일자(시작)");
+	const [endDate, setEndDate] = useState("거래 일자(종료)");
 	const [isOpen, setIsOpen] = useState(false);
-
-	const style = { visibility: isOpen ? 'hidden' : 'visible' };
 
 	const handleToggleCalendar = () => {
 		setIsOpen(!isOpen);
 	};
 
-	const handleDateChange = (selectedDate) => {
+	const handleStartDateChange = (selectedDate) => {
 		setIsOpen(false);
-		setNowDate(moment(selectedDate).format("YYYY년 MM월 DD일"));
+		setStartDate(moment(selectedDate).format("YYYY년 MM월 DD일"));
+	};
+
+	const handleEndDateChange = (selectedDate) => {
+		setIsOpen(false);
+		setEndDate(moment(selectedDate).format("YYYY년 MM월 DD일"));
 	};
 
 	return (
@@ -164,10 +168,17 @@ const Main = () => {
 				</FormControl>
 			</div>
 
-			<div>
-				<Button onClick={handleToggleCalendar}>{nowDate}</Button>
-				<div style={style}>
-					<Calendar onChange={handleDateChange}></Calendar>
+			<div style={{ textAlign: "center" }}>
+				<Button onClick={handleToggleCalendar}>{startDate}</Button>
+				<div style={{ visibility: isOpen ? 'visible' : 'hidden' }}>
+					<Calendar onChange={handleStartDateChange}></Calendar>
+				</div>
+			</div>
+
+			<div style={{ textAlign: "center" }}>
+				<Button onClick={handleToggleCalendar}>{endDate}</Button>
+				<div style={{ visibility: isOpen ? 'visible' : 'hidden' }}>
+					<Calendar onChange={handleEndDateChange}></Calendar>
 				</div>
 			</div>
 
