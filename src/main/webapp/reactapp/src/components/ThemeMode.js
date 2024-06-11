@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useTheme } from '../context/themeProvider';
 import AppLayout from './AppLayout';
 
-const Main = () => {
+const ThemeMode = () => {
     const ThemeMode = useTheme();
     const CurrentMode = ThemeMode[0] === 'light' ? '🌝' : '🌚';
 
@@ -11,7 +11,7 @@ const Main = () => {
         <AppLayout>
             <h2> Welcome to {''}
                 <a
-                    href="https://github.com/gparkkii/react_darkmode"
+                    href="https://www.naver.com"
                     target="_blank"
                     rel="noreferrer noopener"
                 >
@@ -21,7 +21,7 @@ const Main = () => {
                 <ColoredText>Current mode is {CurrentMode}</ColoredText>
             </h2>
             <a
-                href="https://github.com/gparkkii"
+                href="https://www.naver.com"
                 target="_blank"
                 rel="noreferrer noopener"
             >
@@ -31,7 +31,7 @@ const Main = () => {
     )
 }
 
-export default Main;
+export default ThemeMode;
 
 const ColoredText = styled.span`
   color: #E6B74A;
