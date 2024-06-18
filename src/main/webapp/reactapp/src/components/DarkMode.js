@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useTheme } from '../context/themeProvider';
 import AppLayout from './AppLayout';
 
-const ThemeMode = () => {
+const DarkMode = () => {
     const ThemeMode = useTheme();
     const CurrentMode = ThemeMode[0] === 'light' ? '🌝' : '🌚';
 
@@ -31,7 +31,7 @@ const ThemeMode = () => {
     )
 }
 
-export default ThemeMode;
+export default DarkMode;
 
 const ColoredText = styled.span`
   color: #E6B74A;

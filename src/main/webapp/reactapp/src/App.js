@@ -6,7 +6,7 @@ import Apartment from './Apartment';
 import NotFound from './NotFound';
 import ThemeProvider from "./context/themeProvider";
 import {GlobalStyle} from "./theme/GlobalStyle";
-import ThemeMode from "./components/ThemeMode";
+import DarkMode from "./components/DarkMode";
 import Sub from "./components/Sub";
 
 const App = () => {
@@ -18,7 +18,7 @@ const App = () => {
 					<GlobalStyle />
 					<Suspense fallback={<div>...loading</div>}>
 						<Routes>
-							<Route path="/" component={ThemeMode}/>
+							<Route path="/" component={DarkMode}/>
 							<Route path="/sub" component={Sub}/>
 							<Route path="/main" element={<Main />}/>
 							<Route path="/apartment/*" element={<Apartment />}/>
