@@ -15,7 +15,7 @@ const DarkMode = () => {
                     target="_blank"
                     rel="noreferrer noopener"
                 >
-                    Darkmode!
+                    Dark mode!
                 </a>
                 <br/>
                 <ColoredText>Current mode is {CurrentMode}</ColoredText>
@@ -25,7 +25,7 @@ const DarkMode = () => {
                 target="_blank"
                 rel="noreferrer noopener"
             >
-                All rights reserved by Ji Yeon Park
+                All rights reserved by Jin yong Kim
             </a>
         </AppLayout>
     )
