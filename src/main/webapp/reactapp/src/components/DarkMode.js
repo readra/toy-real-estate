@@ -11,7 +11,7 @@ const DarkMode = () => {
         <AppLayout>
             <h2> Welcome to {''}
                 <a
-                    href="https://www.naver.com"
+                    href="https://github.com/readra"
                     target="_blank"
                     rel="noreferrer noopener"
                 >
@@ -21,7 +21,7 @@ const DarkMode = () => {
                 <ColoredText>Current mode is {CurrentMode}</ColoredText>
             </h2>
             <a
-                href="https://www.naver.com"
+                href="https://github.com/readra"
                 target="_blank"
                 rel="noreferrer noopener"
             >
