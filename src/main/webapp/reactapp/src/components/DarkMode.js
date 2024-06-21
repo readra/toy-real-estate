@@ -10,23 +10,11 @@ const DarkMode = () => {
     return (
         <AppLayout>
             <h2> Welcome to {''}
-                <a
-                    href="https://github.com/readra"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                >
-                    Dark mode!
-                </a>
+                <a href="https://github.com/readra" target="_blank" rel="noreferrer noopener">Dark mode!</a>
                 <br/>
                 <ColoredText>Current mode is {CurrentMode}</ColoredText>
             </h2>
-            <a
-                href="https://github.com/readra"
-                target="_blank"
-                rel="noreferrer noopener"
-            >
-                All rights reserved by Jin yong Kim
-            </a>
+            <a href="https://github.com/readra" target="_blank" rel="noreferrer noopener">All rights reserved by Jin yong Kim</a>
         </AppLayout>
     )
 }
