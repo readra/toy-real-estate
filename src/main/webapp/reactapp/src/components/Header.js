@@ -10,7 +10,7 @@ const Header = () => {
                 <RightMenu>
                     <Link to='/'>
                         <img src={logo} alt="logo"/>
-                        <p>DARKMODE</p>
+                        <p>Dark Mode</p>
                     </Link>
                 </RightMenu>
                 <LeftMenu>
