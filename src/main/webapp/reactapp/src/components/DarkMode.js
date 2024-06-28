@@ -109,6 +109,23 @@ const DarkMode = () => {
                 </Select>
             </FormControl>
 
+            <FormControl sx={{ m: 1, minWidth: 200 }}>
+                <InputLabel id="gu-select-label">
+                    지역(구)
+                </InputLabel>
+                <Select
+                    labelId="gu-select-label"
+                    id="gu-select"
+                    value={gu}
+                    label="Gu"
+                    onChange={handleGuChange}
+                >
+                    {gus.map((gu) => (
+                        <MenuItem value={gu.code}>{gu.name}</MenuItem>
+                    ))}
+                </Select>
+            </FormControl>
+
             <a href="https://github.com/readra" target="_blank" rel="noreferrer noopener">All rights reserved by Jin yong Kim</a>
         </AppLayout>
     )
