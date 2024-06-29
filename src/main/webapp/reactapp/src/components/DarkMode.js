@@ -126,6 +126,23 @@ const DarkMode = () => {
                 </Select>
             </FormControl>
 
+            <FormControl sx={{ m: 1, minWidth: 200 }}>
+                <InputLabel id="dong-select-label">
+                    지역(동)
+                </InputLabel>
+                <Select
+                    labelId="dong-select-label"
+                    id="dong-select"
+                    value={dong}
+                    label="Dong"
+                    onChange={handleDongChange}
+                >
+                    {dongs.map((dong) => (
+                        <MenuItem value={dong.code}>{dong.name}</MenuItem>
+                    ))}
+                </Select>
+            </FormControl>
+
             <a href="https://github.com/readra" target="_blank" rel="noreferrer noopener">All rights reserved by Jin yong Kim</a>
         </AppLayout>
     )
