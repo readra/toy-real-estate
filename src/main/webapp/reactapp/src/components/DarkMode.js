@@ -4,7 +4,7 @@ import { useTheme } from '../context/themeProvider';
 import AppLayout from './AppLayout';
 import axios from "axios";
 import moment from "moment/moment";
-import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
+import {Button, FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 
 const DarkMode = () => {
     const ThemeMode = useTheme();
@@ -141,6 +141,12 @@ const DarkMode = () => {
                         <MenuItem value={dong.code}>{dong.name}</MenuItem>
                     ))}
                 </Select>
+            </FormControl>
+
+            <FormControl sx={{ m: 1, minWidth: 200 }}>
+                <Button variant="contained" style={{ width: '80px', height: '40px' }} onClick={handleSearchClick}>
+                    조회
+                </Button>
             </FormControl>
 
             <a href="https://github.com/readra" target="_blank" rel="noreferrer noopener">All rights reserved by Jin yong Kim</a>
